@@ -1,8 +1,21 @@
 package com.gn93;
 
+import com.gn93.Meal.*;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        System.out.println("Nowy posiłek: ");
+        Meal riceMeal = new RiceMeal();
+        riceMeal.prepareMeal();
+        System.out.println("\nNowy posiłek: ");
+        Meal riceMealWithShrimp = new ShrimpMealDecorator(new RiceMeal());
+        riceMealWithShrimp.prepareMeal();
+        System.out.println("\nNowy posiłekk: ");
+        Meal potatoMealWithChickenAndSauce = new SauceMealDecorator(new ChickenMealDecorator(new PotatoMeal()));
+        potatoMealWithChickenAndSauce.prepareMeal();
+
+
     }
 }
